@@ -51,18 +51,7 @@
                     <li class="active"><a href="{!! url('dashboard/admin/user/create') !!}"><i class="fa fa-circle-o"></i> Create User</a></li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Post Type</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{!! url('dashboard/admin/posttype') !!}"><i class="fa fa-circle-o"></i> All Post Type</a></li>
-                    <li class="active"><a href="{!! url('dashboard/admin/posttype/create') !!}"><i class="fa fa-circle-o"></i> Create Post Type</a></li>
-                </ul>
-            </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Posts</span>
