@@ -4,8 +4,8 @@ This is Laravel shopping cart CMS with stripe payment gateway integration. You c
 ## Installation Steps: ##
 > 1. Clone this repository
 > 2. Go to the project folder then run **composer install**
-> 3. Run **php artisan key:generate**
-> 4. Copy .env.example file and save as .env file in the same directory
+> 3. Copy .env.example file and save as .env file in the same directory
+> 4. Run **php artisan key:generate**
 > 5. Set database name, database username, database password in .env file
 > 6. Run migration: **php artisan migrate**
 > 7. Seed the database: **php artisan db:seed**
