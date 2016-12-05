@@ -6,6 +6,8 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller {
     /*
@@ -26,7 +28,7 @@ use RegistersUsers;
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -63,6 +65,14 @@ use RegistersUsers;
                     'email' => $data['email'],
                     'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function register(Request $request) {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        flash('You can not login until you have activated by administrator.');
+        return $this->registered($request, $user)
+                ? : redirect($this->redirectPath());
     }
 
 }
