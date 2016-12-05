@@ -9,6 +9,7 @@ use Yajra\Datatables\Facades\Datatables;
 use App\Pcategory;
 use Form;
 use App\Http\Requests\CreateProductRequest;
+
 class ProductController extends Controller {
 
     /**
@@ -164,6 +165,26 @@ class ProductController extends Controller {
         $product->forceDelete();
         flash('Product deleted sucessfully!');
         return redirect('dashboard/admin/product');
+    }
+
+    /*
+     * Show product list in front end
+     * return lst of data
+     */
+
+    public function frontendList() {
+        $products = Product::where('product_status', 'publish')->paginate(9);
+        return view('frontend.products.list')->with('products', $products);
+    }
+
+    /* show single product view in front end
+     * 
+     */
+
+    public function frontendSingleView($id) {
+        $product = Product::find($id);
+
+        return view('frontend.products.view')->with('product', $product);
     }
 
 }

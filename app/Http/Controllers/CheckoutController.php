@@ -26,7 +26,11 @@ class CheckoutController extends Controller {
      */
 
     public function getShowCheckoutForm() {
-        return view('backend.admin.checkout.checkout');
+        if (Auth::check()) {
+            return view('frontend.checkout.checkout');
+        }
+        flash('You must login first to checkout');
+        return redirect('login');
     }
 
     /*
@@ -43,15 +47,15 @@ class CheckoutController extends Controller {
             if ($charges->failure_code == '') {
                 $this->creditCardPayment($request, $charges);
                 flash('Order created sucessfully');
-                return redirect('dashboard/admin/order');
+                return redirect('products/list');
             }
         } elseif ($request->get('payment_type') == 'Cash on dailivary') {
             $this->cashOnDelivary($request);
             flash('Order created sucessfully');
-            return redirect('dashboard/admin/order');
+            return redirect('products/list');
         } else {
             flash('Something went wrong. Please try again sometime');
-            return redirect('dashboard/admin/cart');
+            return redirect('cart');
         }
     }
 

@@ -68,4 +68,9 @@ hr.shila-border {
     padding: 7px;
     color: #fff;
 }
-
+.shop-list .small-box:hover {
+    color: inherit;
+}
+.shop-list .small-box img{
+    width: 100%;
+}

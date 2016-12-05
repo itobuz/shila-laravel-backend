@@ -15,7 +15,7 @@ class CartController extends Controller {
      */
     
     public function getCartList(){
-        return view('backend.admin.cart.index');
+        return view('frontend.cart.index');
     }
 
 
@@ -26,7 +26,7 @@ class CartController extends Controller {
     public function postAddToCart(Request $request) {
         $product = Product::findOrFail($request->input('id'));
         Cart::add(['id' => $product->id, 'name' => $product->product_title, 'qty' => $request->input('qty'), 'price' => $product->price, 'options' => ['image' => $product->product_featuredimage]]);
-        return redirect('dashboard/admin/cart');
+        return redirect('cart');
     }
 
     /*
@@ -35,7 +35,7 @@ class CartController extends Controller {
 
     public function postUpdateCart(Request $request) {
         Cart::update($request->id, $request->qty);
-         return redirect('dashboard/admin/cart');
+         return redirect('cart');
     }
 
     /*
@@ -44,7 +44,7 @@ class CartController extends Controller {
 
     public function getRemoveCartItem($id) {
         Cart::remove($id);
-         return redirect('dashboard/admin/cart');
+         return redirect('cart');
     }
 
 }

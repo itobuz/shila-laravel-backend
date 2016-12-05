@@ -33,20 +33,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
             Route::get('page/permanent-delete/{id}', 'PageController@getPermanentDelete');
             Route::get('page/trash-data', 'PageController@getTrashData');
 
-            Route::get('cart', 'CartController@getCartList');
-            Route::post('cart/add-to-cart/', 'CartController@postAddToCart');
-            Route::post('cart/update-cart/', 'CartController@postUpdateCart');
-            Route::get('cart/remove-cart-item/{id}', 'CartController@getRemoveCartItem');
-
-            Route::get('checkout/payment/', 'CheckoutController@getShowCheckoutForm');
-            Route::post('checkout/payment', 'CheckoutController@postCheckoutForm');
-
             Route::get('order/trash', 'OrderController@getTrashed');
             Route::get('order/restore/{id}', 'OrderController@getRestore');
             Route::get('order/permanent-delete/{id}', 'OrderController@getPermanentDelete');
             Route::post('order/status', 'OrderController@postChangeStatus');
             Route::get('order/refund', 'OrderController@getRefunds');
-            
+
             Route::resource('role', 'RoleController');
             Route::post('permission/attachment', 'PermissionController@postRoleAttachment');
             Route::resource('permission', 'PermissionController');
@@ -58,7 +50,13 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
             Route::resource('product-categories', 'PcategoryController');
             Route::resource('product', 'ProductController');
             Route::resource('order', 'OrderController');
-            Route::resource('eshop','ShopSettingsController');
+            Route::resource('eshop', 'ShopSettingsController');
         });
     });
 });
+
+/*
+ * Front end route
+ */
+@include('frontend.php');
+
