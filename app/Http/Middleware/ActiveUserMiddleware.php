@@ -16,7 +16,8 @@ class ActiveUserMiddleware {
      */
     public function handle($request, Closure $next) {
         if (Auth::user()->status != 1) {
-            return redirect('/logout');
+            flash('Your are not activated.');
+            return redirect('/login');
         }
         return $next($request);
     }
