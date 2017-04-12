@@ -15,3 +15,10 @@ This is Laravel shopping cart CMS with stripe payment gateway integration. You c
 
 Go to Dashboard > eShop > Settings > then add Stripe secret key and Stripe public key
 
+
+## Admin Login Credentials ##
+
+Url: domainname/login ,
+Email: admin@admin.com ,
+Password: admin123 
+
