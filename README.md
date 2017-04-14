@@ -1,4 +1,4 @@
-This is Laravel shopping cart CMS with stripe payment gateway integration. You can use it for post page and product. You can also see orders.
+This is Laravel shopping cart CMS with stripe payment gateway integration. You can use it for post page and product. You can also see orders. This cms fully support L5.4
 
 
 ## Installation Steps: ##

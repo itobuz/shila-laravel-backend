@@ -29,7 +29,7 @@ class PostController extends Controller {
     public function getData() {
         $posttype_id = Posttype::whereName('post')->first()->id;
         $posts = Post::select('*')->where('posttype_id', '=', $posttype_id);
-        return Datatables::usingEloquent($posts)
+        return Datatables::eloquent($posts)
                         ->addColumn('action', function ($posts) {
                             $result = '';
                             $result.='<a href="post/' . $posts->id . '/edit" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
@@ -135,7 +135,7 @@ class PostController extends Controller {
     public function getTrashData() {
         $posttype_id = Posttype::whereName('post')->first()->id;
         $posts = Post::onlyTrashed()->where('posttype_id', '=', $posttype_id);
-        return Datatables::usingEloquent($posts)
+        return Datatables::eloquent($posts)
                         ->addColumn('action', function ($posts) {
                             $result = '';
                             $result.='<a href="restore/' . $posts->id . '" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-edit"></i> Restore</a>';

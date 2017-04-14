@@ -6,20 +6,21 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.3.*",
-        "santigarcor/laratrust": "3.0.*",
-        "laravelcollective/html": "5.3.x-dev",
+        "laravel/framework": "5.4.*",
+        "santigarcor/laratrust": "3.2.*",
+        "laravelcollective/html": "^5.3.0",
         "laracasts/flash": "^2.0",
         "thomaswelton/laravel-gravatar": "~1.0",
         "guzzlehttp/guzzle": "~5.3|~6.0",
-        "yajra/laravel-datatables-oracle": "~6.0",
+        "yajra/laravel-datatables-oracle": "^7.3",
         "gloudemans/shoppingcart": "^2.2",
-        "laravel/cashier": "~7.0"
+        "laravel/cashier": "~7.0",
+        "yajra/laravel-datatables-buttons": "^1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~4.0",
+        "phpunit/phpunit": "~5.7",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*"
     },

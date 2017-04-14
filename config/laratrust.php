@@ -95,4 +95,13 @@ return [
     |--------------------------------------------------------------------------
     */
     'permission_foreign_key' => 'permission_id',
+
+    /* Update to 3.1 */
+    'permission_user_table' => 'permission_user',
+
+    /* Update to 3.2 */
+    'user_models' => [
+    'users' => 'App\User',
+],
+
 ];

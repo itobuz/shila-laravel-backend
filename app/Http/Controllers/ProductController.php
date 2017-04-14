@@ -27,7 +27,7 @@ class ProductController extends Controller {
 
     public function getData() {
         $products = Product::select('*');
-        return Datatables::usingEloquent($products)
+        return Datatables::eloquent($products)
                         ->addColumn('action', function ($products) {
                             $result = '';
                             $result.='<a href="product/' . $products->id . '/edit" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
@@ -135,7 +135,7 @@ class ProductController extends Controller {
     public function getTrashData() {
 
         $product = Product::onlyTrashed();
-        return Datatables::usingEloquent($product)
+        return Datatables::eloquent($product)
                         ->addColumn('action', function ($product) {
                             $result = '';
                             $result.='<a href="restore/' . $product->id . '" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-edit"></i> Restore</a>';

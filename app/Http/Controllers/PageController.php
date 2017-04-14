@@ -26,7 +26,7 @@ class PageController extends Controller {
 
     public function getData() {
         $pages = Page::select('*');
-        return Datatables::usingEloquent($pages)
+        return Datatables::eloquent($pages)
                         ->addColumn('action', function ($pages) {
                             $result = '';
                             $result.='<a href="page/' . $pages->id . '/edit" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
@@ -127,7 +127,7 @@ class PageController extends Controller {
     public function getTrashData() {
         $allpages = Page::select('*');
         $pages = $allpages->withTrashed();
-        return Datatables::usingEloquent($pages)
+        return Datatables::eloquent($pages)
                         ->addColumn('action', function ($pages) {
                             $result = '';
                             $result.='<a href="restore/' . $pages->id . '" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-edit"></i> Restore</a>';
